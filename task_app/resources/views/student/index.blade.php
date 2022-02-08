@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>Course Informations</h1>
+<h1>Course Informations || Student View</h1>
 <table>
     <tr>
         <td>

@@ -1,16 +1,18 @@
 @extends('layouts.app')
 @section('content')
+<div>
     <table>
         <tr>
             <td>
-                <a href="D:\xamp\htdocs\Adv Web Tech\Laravel\task_app\resources\views\student\index.blade.php" >Student</a>
+                <a href="/student" >Student</a>
             </td>
         </tr>
         <tr>
             <td>
-                <a href="resources\views\admin\index.blade.php">Admin</a>
+                <a href="/admin">Admin</a>
             </td>
         </tr>
     </table>
+</div>
 @endsection
 

@@ -46,25 +46,25 @@ class AppController extends Controller
 
     public function contacts(){
         $contact=array(
-            "Name:"=>"Tanvir Ahmed",
-            "Positing:"=>"Developer",
-            "Email:"=>"t.a@st.edu",
+            "Name"=>"Tanvir Ahmed",
+            "Position"=>"Developer",
+            "Email"=>"t.a@st.edu",
         );
         $contact=(object) $contact;
         $contacts[] = $contact;
 
         $contact=array(
-            "Name:"=>"Rayhan Uddin",
-            "Positing:"=>"Co-ordinator",
-            "Email:"=>"r.u@st.edu",
+            "Name"=>"Rayhan Uddin",
+            "Position"=>"Co-ordinator",
+            "Email"=>"r.u@st.edu",
         );
         $contact=(object) $contact;
         $contacts[] = $contact;
 
         $contact=array(
-            "Name:"=>"Mushfiq Rahman",
-            "Positing:"=>" Manager",
-            "Email:"=>"ms@st.edu", 
+            "Name"=>"Mushfiq Rahman",
+            "Position"=>" Manager",
+            "Email"=>"ms@st.edu", 
         );
         $contact=(object) $contact;
         $contacts[] = $contact; 
@@ -77,5 +77,13 @@ class AppController extends Controller
 
     public function login(){
         return view('home.login');
+    }
+
+    public function student(){
+        return view('student.index');
+    }
+
+    public function admin(){
+        return view('admin.index');
     }
 }

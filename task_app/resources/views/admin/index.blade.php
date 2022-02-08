@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.adminBoard')
 @section('content')
-<h1>Course Informations</h1>
-<table>
+<h1>Course Informations || Admin View</h1>
+{{-- <table>
     <tr>
         <td>
             Course name: {{$courses->Course}}
@@ -22,6 +22,7 @@
             Starts: {{$courses->Starts}}
         </td>
     </tr>
-</table>
+</table> --}}
+
     
 @endsection
