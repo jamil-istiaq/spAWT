@@ -27,7 +27,7 @@ class CustomerController extends Controller
     if($c){
         if($req->password===$c->password){
             $req->session()->put('CusId',$c->c_id);
-            return redirect()->route('home'); 
+            return redirect()->route('show'); 
         }
         else{
             return "Password Does't Match";

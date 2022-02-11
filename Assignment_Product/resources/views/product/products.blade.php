@@ -12,15 +12,16 @@
     </tr>
     @foreach ($products as $p)
     <tr>
-       <td>{{$p->p_id}}</td>
+       <td>{{$p->id}}</td>
        <td>{{$p->name}}</td>
        <td>{{$p->price}}</td>
        <td>{{$p->qty}}</td>
        <td>{{$p->dis}}</td>
-       <td><a href="#">Order</a></td>
+       <td><a href="/cart/{{$p->id}}">Order</a></td>
        <td>
-           <a href="{{route('edit',$p->p_id)}}">Edit</a> |
-           <a href="#">Delete</a>
+           {{-- <a href="{{route('edit',[$p->p_id])}}">Edit</a> --}}
+           <a href="{{route('edit',['id'=>$p->id])}}">Edit</a>
+           <a href="{{route('delete',['id'=>$p->id])}}">Delete</a>
         </td>
     </tr>
         

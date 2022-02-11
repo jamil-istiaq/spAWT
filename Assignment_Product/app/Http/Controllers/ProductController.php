@@ -31,19 +31,45 @@ class ProductController extends Controller
     }
 
     public function edit($id){
-        $p= product::where('p_id','=',$id)
+        
+        $data= product::where('id','=',$id)
         ->first();
         
         return view('product.edit')
-        ->with('edit',$p);
+        ->with('data',$data);
     }
 
-    public function editSubmit(Request $req){
-        
-    }
+    public function editsubmit(Request $req){
 
-    public function delete(){
+        $req->validate([
+            'name'=>'required',
+            'price'=>'required',
+            'qty'=>'required',
+            'dis'=>'required',
+        ]);
+
+        $p = product::where('id','=',$req->id)
+        ->first();
+
+        $p->name=$req->name;
+        $p->price=$req->price;
+        $p->qty=$req->qty;
+        $p->dis=$req->dis;     
+        $p->save();
         
+        return redirect()->route('home');        
+        
+}
+
+    public function delete(Request $req){
+        
+        $deleteData = product::where('id','=',$req->id)
+
+        ->first();
+
+        $deleteData->delete();
+
+        return redirect()->route('home');  
     }
 
     public function products(){
