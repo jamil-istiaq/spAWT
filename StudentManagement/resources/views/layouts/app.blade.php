@@ -6,6 +6,7 @@
         
          @include('includes.header')
          @yield('content')
+         @yield('content1')
          
 
         <div>Copy Right @Md. Jamil Istiaq</div>

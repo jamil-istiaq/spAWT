@@ -7,7 +7,7 @@
         </tr>
         @foreach($depts as $d)
             <tr>
-                <td><a href="{{route('details',['id'=>$d->id])}}">{{$d->name}}</a></td>
+                <td><a href="{{route('deptdetails',['id'=>$d->id])}}">{{$d->name}}</a></td>
                 <td>{{$d->id}}</td>
             </tr>
         @endforeach

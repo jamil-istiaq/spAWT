@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Department;
+use App\Models\CourseStudent;
+
 class Student extends Model
 {
     use HasFactory;
@@ -12,6 +14,10 @@ class Student extends Model
     public function department(){
         return $this->belongsTo(Department::class,'dept_id'); // maps student tables d_id with departments id
         //return $this->belongsTo(Department::class,'d_id','another column');
+    }
+
+    public function courses(){
+        return $this->hasMany(CourseStudent::class,'st_id');
     }
 
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+use App\Models\UserModel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,11 +16,35 @@ class HomeController extends Controller
       return view('home.login');
   }
 
+  public function register(){
+      return view('home.register');
+  }
+  public function registerSubmit(Request $req){
+    $this->validate($req,
+    [
+        'name'=>'required',
+        'email'=>'required',
+        'id'=>'required',
+        'password'=>'required',
+        'conf_password'=>'required|same:password',
+    ]
+    );
+    $usr=new UserModel();
+    $usr->name=$req->name;
+    $usr->email=$req->email;
+    $usr->u_id=$req->id;
+    $usr->password=md5($req->password);
+    $usr->save();
+
+    return redirect()->view('home.login');
+
+  }
+
   public function loginSubmit(Request $req){
     $this->validate($req,
             [
                 
-                'uname'=>'required',
+                'id'=>'required',
                 'password'=>'required',
                 'conf_password'=>'required|same:password',
                 
@@ -29,8 +55,26 @@ class HomeController extends Controller
             ]
     
         );
-        //return redirect()->route('/');
-        return view('home.index');
+
+        $s_user=UserModel::where ('u_id',$req->id)
+        ->where ('password',md5($req->password))
+        ->first();
+        $msg="";
+        if($s_user){
+            $req->session()->flash('msg','User exists');
+            $req->session()->put('user',$s_user->u_id);
+        }
+        else{
+            $req->session()->flash('msg','User does not exists');
+        }
+        return redirect()->route('home');
+
+        
+    }
+
+    public function logout(){
+        session()->flush();
+        return redirect()->route('login');
     }
   
 }
