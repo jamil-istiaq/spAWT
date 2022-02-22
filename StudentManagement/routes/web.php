@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DepartmentController;
@@ -42,3 +43,5 @@ Route::get('/department/{id}',[DepartmentController::class,'details'])->name('de
 
 Route::get('/teachers/list',[TeacherController::class,'list'])->name('teachers');
 Route::get('/teachers/{id}',[TeacherController::class,'details'])->name('teachers.details');
+
+Route::get('/course/list',[CourseController::class,'list'])->name('courses');

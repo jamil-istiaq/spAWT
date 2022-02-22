@@ -8,15 +8,14 @@
             <tr>
                 <th>Courses</th>
             </tr>
+            @foreach($t->courses as $c)
+
             <tr>
-                <td>{{$t->name}}</td>
+                <td>{{$c->course->name}}</td>
+
             </tr>
-           
-            <tr>
-                {{-- <td>{{$t->course->name}}</td> --}}
-                {{-- <td>{{$c->course->department->name}}</td> --}}
-            </tr>
-        
-           
+
+        @endforeach
+    
         </table>
 @endsection

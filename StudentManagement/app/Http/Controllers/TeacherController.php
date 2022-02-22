@@ -18,7 +18,7 @@ class TeacherController extends Controller
         $t = Teacher::where('id',$req->id)
         ->select('id','name','designation')
         ->first();
-
+        // return $t->courses;
         return view('teacher.details')->with('t',$t);
     }
 }

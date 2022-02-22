@@ -3,7 +3,7 @@
     <form action="{{route('login')}}" method="post">
     {{@csrf_field()}}
         
-        <input type="text" name="id" value="{{old('id')}}" placeholder="Student ID">
+        <input type="text" name="id" value="{{old('id')}}" placeholder="User ID">
         @error('uname')
         <span>{{$message}}</span>
         @enderror

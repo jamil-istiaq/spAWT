@@ -17,14 +17,26 @@
         <span>{{$message}}</span>
         @enderror
         <br>
-        <input type="password" name="password"  placeholder="Password"><br>
+        {{-- <select name="rl">
+            <option selected disabled>Select Position</option>
+            <option value="1">Student</option>
+            <option value="2">Teacher</option>
+            <option value="3">Admin</option>
+        </select>
+        @error('rl')
+        <span>{{$message}}</span>
+        @enderror
+        <br> --}}
+        <input type="password" name="password"  placeholder="Password">
         @error('password')
         <span>{{$message}}</span>
         @enderror
-        <input type="password" name="conf_password"  placeholder="Confirm Password"><br>
+        <br>
+        <input type="password" name="conf_password"  placeholder="Confirm Password">
         @error('conf_password')
         <span>{{$message}}</span>
         @enderror
+        <br>
         <input type="submit" value="Register" >
     </form>
 @endsection
